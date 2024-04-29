@@ -5,7 +5,7 @@ public class Main {
         Scanner ler = new Scanner(System.in);
 
         String[] nomeprodutos = new String[10];
-        double[][] dados = new double[10][3];
+        double[][] dados = new double[10][3]; // Coluna [0] = ID; coluna [1] = Quantidade; coluna [2] = Valor unitário
 
         String resposta;
         int contadorProdutos = 0;
@@ -43,7 +43,7 @@ public class Main {
                         String nome = ler.nextLine();
                         System.out.print("Quantidade: ");
                         double quantidade = ler.nextDouble();
-                        System.out.print("Valor únitario: ");
+                        System.out.print("Valor unitário: ");
                         double valorUni = ler.nextDouble();
 
                         for (int i = 0; i < nomeprodutos.length; i++) { // Procura um lugar vázio no vetor e coloca as informações no vetor (nomeprodutos) e na matriz (dados)
@@ -72,7 +72,6 @@ public class Main {
                 case 2: // Listar Produtos
                     System.out.println("--- Listando Produtos ---");
 
-                    int quantProdutos = 0;
                     double quantTotal = 0;
                     double valorTotal = 0;
 
@@ -83,7 +82,6 @@ public class Main {
                             System.out.println("Quantidade: " + dados[i][1]);
                             System.out.println("Valor Total: " + (dados[i][2] * dados[i][1]) + "\n");
 
-                            quantProdutos++;
                             quantTotal += dados[i][1];
                             valorTotal += dados[i][2] * dados[i][1];
                         }
@@ -92,7 +90,7 @@ public class Main {
                         }
                     }
 
-                    System.out.println("Quantidade de produtos cadastrados: " + quantProdutos);
+                    System.out.println("Quantidade de produtos cadastrados: " + contadorProdutos);
                     System.out.println("Quantidade total de produtos: " + quantTotal);
                     System.out.println("Valor total em estoque: " + valorTotal);
 
@@ -187,13 +185,12 @@ public class Main {
                             break;
                         }
                     }
-
                     break;
                 case 5: // Buscar Produto pelo ID
                     System.out.println("--- Buscar Produto pelo ID ---");
 
                     ler.nextLine();
-                    System.out.print("Digite o ID do produto a ser editado: ");
+                    System.out.print("Digite o ID do produto para buscar no sistema: ");
                     resID = ler.nextInt();
 
                     for (int i = 0; i < nomeprodutos.length; i++) {
